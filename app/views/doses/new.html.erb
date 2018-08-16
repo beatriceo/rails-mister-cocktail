@@ -1,0 +1,13 @@
+<h1>New Ingredients</h1>
+
+<ul class="alerts">
+  <% if @dose.errors %>
+    <% @dose.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= render 'form', dose: @dose %>
+
+<%= link_to 'Back', cocktail_path(@dose.cocktail) %>

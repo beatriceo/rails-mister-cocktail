@@ -1,0 +1,13 @@
+<h1>New Cocktail</h1>
+
+<ul class="alerts">
+  <% if @cocktail.errors %>
+    <% @cocktail.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= render 'form', cocktail: @cocktail %>
+
+<%= link_to 'Back', cocktails_path %>
