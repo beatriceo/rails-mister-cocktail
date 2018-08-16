@@ -1,10 +1,37 @@
-<h1>All Cocktails</h1>
-
-
-<%= link_to "Add a new cocktail", new_cocktail_path  %>
-<hr>
-<ul>
-  <% @cocktails.each do |cocktail| %>
-    <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
-  <% end %>
-</ul>
+<div class="container mt-3">
+  <div class="row scroll">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-4 col-xs-12 col-sm-6 col-md-4">
+        <%= link_to cocktail_path(cocktail) do %>
+          <div class="flat-card" style="background-image: url('<%= cocktail.image_url %>')">
+            <div class="flat-card-image" style="background-image: url('<%= cocktail.image_url %>')"></div>
+            <div class="flat-card-content">
+              <div class="flat-card-title">
+                <h4><%= cocktail.name %></h4>
+              </div>
+              <div class="flex">
+                <div class="flex">
+                  <% total = 0 %>
+                  <% unless cocktail.reviews.nil? %>
+                    <% cocktail.reviews.each do |review| %>
+                      <% total += review.rating %>
+                    <% end %>
+                  <% end %>
+                  <% average_rating = total / cocktail.reviews.count %>
+                  <span>
+                  <% average_rating.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                  <% (5 - average_rating).times do %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
