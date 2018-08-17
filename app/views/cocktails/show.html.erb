@@ -1,39 +1,62 @@
 <p id="notice"><%= notice %></p>
 
+<div class="ingredients-container">
+  <h1><%= @cocktail.name %></h1>
 
-<h1><%= @cocktail.name %></h1>
-<h2>Ingredients</h2>
-<ul>
-  <% @cocktail.doses.each do |dose| %>
-    <li><%= Ingredient.find(dose.ingredient_id).name %> - <%= dose.description %>
-      | <%= link_to "Delete", dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %>
-    </li>
-  <% end %>
-</ul>
-<%= image_tag @cocktail.image_url %>
+  <div class="ingredients">
+    <div class="grid-container">
+      <div class="grid-item">
 
-<%= link_to "Add a new ingredient", new_cocktail_dose_path(@cocktail)  %>
-<%= link_to 'Back', cocktails_path %>
+        <h2>Ingredients</h2>
+        <ul>
+          <% @cocktail.doses.each do |dose| %>
+            <li><%= Ingredient.find(dose.ingredient_id).name %> - <%= dose.description %>
+              <%= link_to dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                &nbsp;&nbsp;<i class="far fa-trash-alt"></i>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
 
 
-<hr>
 
-<% @cocktail.reviews.each do |review| %>
+      </div>
+      <div class="grid-item">
+        <div class="cocktail-img">
+          <%= image_tag @cocktail.image_url %>
+        </div>
+      </div>
+    </div>
+    <%= link_to "Add a new ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-warning"  %>
+    <%= link_to 'Back', cocktails_path, class: "btn btn-danger" %>
+  </div>
 
-  <% review.rating.times do %>
-    <i class="fas fa-star"></i>
-  <% end %>
-  <% (5 - review.rating).times do %>
-    <i class="far fa-star"></i>
-  <% end %>
-
-  <span>&nbsp;&nbsp;&nbsp;<%= review.content %></span>
   <br>
-<% end %>
 
-<%= link_to 'Add A New Review', new_cocktail_review_path(@cocktail) %>
+  <div class="ingredients">
+    <h3>Reviews</h3>
+    <% @cocktail.reviews.each do |review| %>
 
-<hr>
-<hr>
-<hr>
+      <% review.rating.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+      <% (5 - review.rating).times do %>
+        <i class="far fa-star"></i>
+      <% end %>
+
+      <span>&nbsp;&nbsp;&nbsp;<%= review.content %></span>
+      <br>
+      <br>
+
+    <% end %>
+    <%= link_to 'Add A New Review', new_cocktail_review_path(@cocktail), class: "btn btn-warning" %>
+  </div>
+
+
+  <br>
+  <br>
+  <br>
+
+</div>
+
 

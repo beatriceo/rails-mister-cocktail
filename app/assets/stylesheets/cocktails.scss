@@ -1,3 +1,39 @@
 // Place all the styles related to the cocktails controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.ingredients {
+  // margin: 10px;
+  height: 100%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.grid-item {
+  padding: 10px;
+}
+
+.grid-item img {
+  border-radius: 5px;
+  height: 300px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: flex-start;
+}
+
+.ingredients-container {
+  margin: 0px 20%;
+}
+
+.cocktail-img {
+  display: flex;
+  justify-content: flex-end;
+}
+
+ul {
+  list-style: circle;
+}
+

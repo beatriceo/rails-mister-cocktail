@@ -1,13 +1,19 @@
-<h1>New Ingredients</h1>
+<div class="ingredients-container">
+  <h1><%= @dose.cocktail.name %></h1>
 
-<ul class="alerts">
-  <% if @dose.errors %>
-    <% @dose.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  <% end %>
-</ul>
+  <div class="ingredients">
+    <ul class="alerts">
+      <% if @dose.errors %>
+        <% @dose.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      <% end %>
+    </ul>
 
-<%= render 'form', dose: @dose %>
+    <%= render 'form', dose: @dose %>
+    <br>
+    <%= link_to 'Back', cocktail_path(@dose.cocktail), class: "btn btn-danger" %>
+  </div>
 
-<%= link_to 'Back', cocktail_path(@dose.cocktail) %>
+</div>
+
