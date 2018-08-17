@@ -6,7 +6,7 @@
   font-size: 18px;
   line-height: 1.428571429;
   color: #000000;
-  background-color: rgba(0,0,0, 0);
+  background-color: rgba(255,255,255, 0);
   background-image: none;
   border: 1px solid #000;
   border-radius: 2px;
@@ -32,5 +32,29 @@
   background-color: rgba(0, 0, 0, 0);
   border-color: #000000;
   border-width: 1px;
+  &:hover {
+    color: rgb(100, 100, 100);
+  }
 }
+
+.btn-main-alt {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 1);
+  border-color: #000000;
+  border-width: 1px;
+  &:hover {
+    color: rgb(160, 160, 160);
+  }
+}
+
+.btn-main-alt-search {
+  color: rgb(253, 219, 70);
+  background-color: rgba(0, 0, 0, 1);
+  border-color: #000000;
+  border-width: 1px;
+  &:hover {
+    color: rgb(224, 189, 49);
+  }
+}
+
 

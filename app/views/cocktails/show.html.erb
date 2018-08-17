@@ -27,8 +27,8 @@
         </div>
       </div>
     </div>
-    <%= link_to "Add a new ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-warning"  %>
-    <%= link_to 'Back', cocktails_path, class: "btn btn-danger" %>
+    <%= link_to "Add a new ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-main"  %>
+    <%= link_to 'Back', cocktails_path, class: "btn btn-main-alt" %>
   </div>
 
   <br>
@@ -49,7 +49,7 @@
       <br>
 
     <% end %>
-    <%= link_to 'Add A New Review', new_cocktail_review_path(@cocktail), class: "btn btn-warning" %>
+    <%= link_to 'Add A New Review', new_cocktail_review_path(@cocktail), class: "btn btn-main" %>
   </div>
 
 

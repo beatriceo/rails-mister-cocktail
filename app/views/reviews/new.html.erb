@@ -4,9 +4,9 @@
   <%= simple_form_for([@cocktail, @review]) do |f| %>
     <%= f.input :content %>
     <%= f.input :rating, collection: [0,1,2,3,4,5] %>
-    <%= f.button :submit, class: "btn btn-warning" %>
+    <%= f.button :submit, class: "btn btn-main" %>
   <% end %>
   <br>
-  <%= link_to 'Back', cocktail_path(@cocktail), class: "btn btn-danger" %>
+  <%= link_to 'Back', cocktail_path(@cocktail), class: "btn btn-main-alt" %>
 </div>
 </div>
