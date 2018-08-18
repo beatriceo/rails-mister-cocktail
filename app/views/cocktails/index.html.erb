@@ -28,12 +28,13 @@
               <div class="flex">
                 <div class="flex">
                   <% total = 0 %>
+                  <% average_rating = 0 %>
                   <% unless cocktail.reviews.nil? %>
                     <% cocktail.reviews.each do |review| %>
                       <% total += review.rating %>
                     <% end %>
                   <% end %>
-                  <% average_rating = total / cocktail.reviews.count %>
+                  <% average_rating = total / cocktail.reviews.count unless average_rating.zero? %>
                   <span>
                   <% average_rating.times do %>
                     <i class="fas fa-star"></i>
