@@ -34,7 +34,7 @@
                       <% total += review.rating %>
                     <% end %>
                   <% end %>
-                  <% average_rating = total / cocktail.reviews.count unless average_rating.zero? %>
+                  <% average_rating = total / cocktail.reviews.count unless cocktail.reviews.count.zero? %>
                   <span>
                   <% average_rating.times do %>
                     <i class="fas fa-star"></i>
